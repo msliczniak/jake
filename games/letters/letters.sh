@@ -93,8 +93,8 @@ unset vb
 unset colors
 
 case "$1" in
-  -s)
-	shift
+  *)
+	#shift
 
 	# flash_screen    flash      vb        visible bell
 	vb=`tput flash vb 2>/dev/null` || vb=`tput bel bl 2>/dev/null`

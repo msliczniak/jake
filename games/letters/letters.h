@@ -79,8 +79,16 @@ function init() {
 // argument processing
 NR == 1 { init(); next }
 
+// moves player up
 tolower($0) == nkey {
 	if (player1h > 1)   player1h = player1h - 1
+
+	draw()
+}
+
+// moves player down
+tolower($0) == skey {
+	if (player1h < height)   player1h = player1h + 1
 
 	draw()
 }
