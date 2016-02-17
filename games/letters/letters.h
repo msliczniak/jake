@@ -77,15 +77,21 @@ function init(  i, j) {
 }
 
 function screenleft(  i, j) {
+	// move all left
 	for (j = 1; j <= height; j = j + 1) {
 		for (i = 2; i <= width; i = i + 1) {
 			screen[i - 1,j] = screen[i,j]
 		}
 	}
 	
+	// fill spaces in right column
 	for (j = 1; j <= height; j = j + 1) {
 		screen[width,j] = " "
 	}
+	
+	// put enemy randomly in right column
+	j = int(rand() * height) + 1
+	screen[width,j] = "X"
 }
 
 
