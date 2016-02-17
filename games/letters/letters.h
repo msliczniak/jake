@@ -92,6 +92,12 @@ function screenleft(  i, j) {
 	// put enemy randomly in right column
 	j = int(rand() * height) + 1
 	screen[width,j] = "X"
+	
+	// put another enemy randomly in right column
+	i = int(rand() * (height - 1)) + 1
+	i = j + i
+	if (i > height) i = i - height
+	screen[width,i] = "X"
 }
 
 
