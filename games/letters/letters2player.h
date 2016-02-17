@@ -29,7 +29,7 @@ function draw(  i, j, gameover) {
 		for (i = 1; i <= width; i = i + 1) {
 			if (i == 1) {
 				if (player1h == j) {
-					printf("%s", "<")
+					printf("%s", carr[3] "<" carr[1])
 
 					if (screen[i,j] == "X") gameover = 1
 					
@@ -52,7 +52,7 @@ function init(  i, j) {
 	errstat=0
 	
 	print carr[1]
-	
+
 	// if there was no seed provided, get one from the system time
 	if (seed == "") {
 		// returns 0, but picks one based on time
