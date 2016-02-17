@@ -76,18 +76,24 @@ function init(  i, j) {
 	draw()
 }
 
-
-
-// argument processing
-NR == 1 { init(); next }
-
-{
+function screenleft(  i, j) {
 	for (j = 1; j <= height; j = j + 1) {
 		for (i = 2; i <= width; i = i + 1) {
 			screen[i - 1,j] = screen[i,j]
 		}
 	}
+	
+	for (j = 1; j <= height; j = j + 1) {
+		screen[width,j] = " "
+	}
 }
+
+
+
+// argument processing
+NR == 1 { init(); next }
+
+{ screenleft() }
 
 // moves player up
 tolower($0) == nkey {
