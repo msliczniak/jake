@@ -23,7 +23,7 @@ BEGIN {
 // hi stand-out
 // lo normal
 
-function draw(  i, j) {
+function draw(  i, j, gameover) {
 	printf("%s", cl)
 	for (j = 1; j <= height; j = j + 1) {
 		for (i = 1; i <= width; i = i + 1) {
@@ -31,6 +31,8 @@ function draw(  i, j) {
 				if (player1h == j) {
 					printf("%s", "<")
 
+					if (screen[i,j] == "X") gameover = 1
+					
 					continue
 				}
 			}
@@ -40,6 +42,10 @@ function draw(  i, j) {
 		
 		print ""
 	}
+
+	printf("\n%9d", score)
+	
+	if (gameover == 1) exit
 }
 
 function init(  i, j) {
@@ -60,7 +66,9 @@ function init(  i, j) {
 	for (i=0; i<256; i+=1) rand();
 	
 	colors=split(colors, carr)
-		
+	
+	//print carr[1]
+
 	score=0
 
 	player1h = int(height / 2)
@@ -77,6 +85,8 @@ function init(  i, j) {
 }
 
 function screenleft(  i, j) {
+	score = score + 1
+
 	// move all left
 	for (j = 1; j <= height; j = j + 1) {
 		for (i = 2; i <= width; i = i + 1) {
@@ -119,4 +129,8 @@ tolower($0) == skey {
 	if (player1h < height)   player1h = player1h + 1
 
 	draw()
+}
+
+END {
+	printf(" points GAME OVER")
 }
