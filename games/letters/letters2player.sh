@@ -219,7 +219,8 @@ awk() {
 fold | awk \
 -f letters2player.awk \
   ${s:+hi="$hi"} ${s:+lo="$lo"} ${s:+cl="$cl"} \
-  ${s:+vb="$vb"} ${s:+colors="$colors"} "$@"
+  ${s:+vb="$vb"} ${s:+colors="$colors"} \
+  cols="`tpq cols co`" lines="`tpq lines li`" "$@"
 
 r=$?
 

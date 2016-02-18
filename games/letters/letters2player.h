@@ -64,6 +64,11 @@ function init(  i, j) {
 	
 	srand(seed)
 	
+	// use terminal size if you can
+	//print cols, lines > "/dev/stderr"
+	if (cols > 0) width = cols - 1
+	if (lines > 0) height = lines - 2
+	
 	// seems to help the early distribution on some old awks
 	for (i=0; i<256; i+=1) rand();
 	
