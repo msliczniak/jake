@@ -122,21 +122,23 @@ function screenleft(  i, j) {
 // argument processing
 NR == 1 { init(); next }
 
-{ screenleft() }
-
 // moves player up
 tolower($0) == nkey {
-	if (player1h > 1)   player1h = player1h - 1
+	if (player1h <= 1) next
 
+	player1h = player1h - 1
 	draw()
 }
 
 // moves player down
 tolower($0) == skey {
-	if (player1h < height)   player1h = player1h + 1
-
+	if (player1h >= height) next
+	
+	player1h = player1h + 1
 	draw()
 }
+
+{ screenleft() }
 
 END {
 	printf(" points GAME OVER")
