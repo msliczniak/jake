@@ -7,7 +7,9 @@ BEGIN {
 // must be lower case
 	nkey="w"
 	skey="s"
-	
+    
+    nkey2="o"
+    skey2="l"
 	cl="" # clear
 	hi=""
 	lo=""
@@ -23,13 +25,22 @@ BEGIN {
 // hi stand-out
 // lo normal
 
+// draws the screen with players and enemies.
 function draw(  i, j, gameover) {
 	printf("%s", carr[1] cl)
 	for (j = 1; j <= height; j = j + 1) {
 		for (i = 1; i <= width; i = i + 1) {
 			if (i == 1) {
 				if (player1h == j) {
-					printf("%s", carr[3] "<" carr[1])
+					printf("%s", carr[1] "<" carr[1])
+
+					if (screen[i,j] == "X") gameover = 1
+					
+					continue
+				}
+                
+				if (player2h == j) {
+					printf("%s", carr[1] ">" carr[1])
 
 					if (screen[i,j] == "X") gameover = 1
 					
@@ -78,7 +89,9 @@ function init(  i, j) {
 
 	score=0
 
-	player1h = int(height / 2)
+	player1h = int(height / 3)
+    
+    player2h = 2 * int(height / 3)
 	
 	for (j = 1; j <= height; j = j + 1) {
 		for (i = 1; i <= width; i = i + 1) {
@@ -122,7 +135,7 @@ function screenleft(  i, j) {
 // argument processing
 NR == 1 { init(); next }
 
-// moves player up
+// moves player1 up
 tolower($0) == nkey {
 	if (player1h <= 1) next
 
@@ -130,13 +143,31 @@ tolower($0) == nkey {
 	draw()
 }
 
-// moves player down
+// moves player1 down
 tolower($0) == skey {
 	if (player1h >= height) next
 	
 	player1h = player1h + 1
 	draw()
 }
+
+// moves player2 up
+tolower($0) == nkey2 {
+	if (player2h <= 1) next
+
+	player2h = player2h - 1
+	draw()
+}
+
+// moves player2 down
+tolower($0) == skey2 {
+	if (player2h >= height) next
+	
+	player2h = player2h + 1
+	draw()
+}
+
+
 
 { screenleft() }
 
