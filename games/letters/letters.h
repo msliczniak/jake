@@ -29,7 +29,7 @@ function draw(  i, j, gameover) {
 		for (i = 1; i <= width; i = i + 1) {
 			if (i == 1) {
 				if (player1h == j) {
-					printf("%s", "<")
+					printf("%s", carr[3] "<" carr[1])
 
 					if (screen[i,j] == "X") gameover = 1
 					
@@ -52,7 +52,7 @@ function init(  i, j) {
 	errstat=0
 	
 	print carr[1]
-	
+
 	// if there was no seed provided, get one from the system time
 	if (seed == "") {
 		// returns 0, but picks one based on time
@@ -63,6 +63,11 @@ function init(  i, j) {
 	}
 	
 	srand(seed)
+	
+	// use terminal size if you can
+	//print cols, lines > "/dev/stderr"
+	if (cols > 0) width = cols - 1
+	if (lines > 0) height = lines - 2
 	
 	// seems to help the early distribution on some old awks
 	for (i=0; i<256; i+=1) rand();
@@ -117,21 +122,23 @@ function screenleft(  i, j) {
 // argument processing
 NR == 1 { init(); next }
 
-{ screenleft() }
-
 // moves player up
 tolower($0) == nkey {
-	if (player1h > 1)   player1h = player1h - 1
+	if (player1h <= 1) next
 
+	player1h = player1h - 1
 	draw()
 }
 
 // moves player down
 tolower($0) == skey {
-	if (player1h < height)   player1h = player1h + 1
-
+	if (player1h >= height) next
+	
+	player1h = player1h + 1
 	draw()
 }
+
+{ screenleft() }
 
 END {
 	printf(" points GAME OVER")
