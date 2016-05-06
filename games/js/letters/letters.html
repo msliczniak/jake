@@ -1,0 +1,169 @@
+<html style="text-transform:uppercase;">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<head>
+<title>letters</title>
+</head>
+<body text="white" bgcolor="black" style="color:white;
+background-color:black;
+cursor:pointer;
+--webkit-touch-callout:none;
+-webkit-user-select:none;
+-khtml-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+user-select:none;" unselectable="on" onload="_init()">
+
+<noscript>
+Your browser either does not support JavaScript, or has it turned off.<p>
+</noscript>
+
+<div unselectable="on">
+<code unselectable="on"><pre id="s" unselectable="on">PLAYER ONE
+Tap upper left or press W key
+to move up.
+Tap lower left or press S key
+to move down.
+
+                    PLAYER TWO
+Tap upper right or press O key
+                   to move up.
+Tap lower right or press L key
+                 to move down.
+</pre></code>
+</div>
+
+<script>
+var mw;
+var mh;
+var cw;
+var ch;
+var pw;
+var ph;
+var w;
+var h;
+var s;
+var _startk;
+var _startc;
+var _keypress;
+var _click;
+
+// calculate w & h
+function _start() {
+	w = window.innerWidth
+	  || document.documentElement.clientWidth
+	  || document.body.clientWidth;
+	pw = w / 3
+	w -= mw;
+	w = Math.floor(w / cw);
+
+	h = window.innerHeight
+	ph = h / 3
+	  || document.documentElement.clientHeight
+	  || document.body.clientHeight;
+	h -= mh;
+	h = Math.floor(h / ch);
+}
+
+function _started() {
+	document.onkeypress = _keypress;
+	document.onclick = _click;
+
+	init();
+}
+
+function end() {
+	document.onkeypress = _startk;
+	document.onclick = _startc;
+}
+
+function _init() {
+	mw = document.getElementById("i").clientWidth;
+	if (mw < 1) return;
+
+	mh = document.getElementById("i").clientHeight;
+	if (mh < 1) return;
+
+	document.getElementById("i").innerHTML = "m";
+
+	i = document.getElementById("i").clientWidth;
+	if (i < 1 || i >= mw) return;
+
+	cw = mw - i; mw -= cw;
+
+	i = document.getElementById("i").clientHeight;
+	if (i < 1 || i >= mh) return;
+
+	ch = mh - i; mh -= ch;
+
+	s = document.getElementById("s")
+
+	s.innerHTML += 
+	  "\n     Tap center or press\n      SPACEBAR to play.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+
+	_keypress = function(e) {
+		e = e || window.event;
+
+		// http://unixpapa.com/js/key.html
+		if (e.which == null) {
+			// IE < 9.0 (Windows)
+			handle(String.fromCharCode(e.keyCode));
+		} else if (e.which != 0 && e.charCode != 0)
+			handle(String.fromCharCode(e.which));
+	};
+
+	_click = function(e) {
+		e = e || window.event;
+
+		if (e.clientX <= pw) {
+			if (e.clientY <= ph)
+				handle("W");
+			else if (e.clientY >= 2 * ph)
+				handle("S")
+		} else if (e.clientX >= 2 * pw) {
+			if (e.clientY <= ph)
+				handle("O");
+			else if (e.clientY >= 2 * ph)
+				handle("L")
+		}
+	};
+
+	_startk = function(e) {
+		e = e || window.event;
+
+		if (e.which != 32 && e.keyCode != 32)
+			return;
+
+		_start();
+		_started();
+	};
+
+	_startc = function(e) {
+		e = e || window.event;
+
+		_start();
+
+		if (e.clientX > pw && e.clientX < 2 * pw &&
+		    e.clientY > ph && e.clientY < 2 * ph)
+			_started();
+	};
+
+	end();
+}
+</script>
+
+<script src="letters.js"></script>
+
+<div unselectable="on">
+<code unselectable="on"><pre id="i" unselectable="on" style="position:absolute;
+float:left;
+left:-999;
+top:-999;
+display:hidden;
+height:auto;
+width:auto;">mm
+mm</pre></code>
+</div>
+
+</body>
+</html>
