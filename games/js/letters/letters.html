@@ -40,8 +40,8 @@ var cw;
 var ch;
 var pw;
 var ph;
-var w;
-var h;
+var cols;
+var lines;
 var s;
 var _startk;
 var _startc;
@@ -50,19 +50,19 @@ var _click;
 
 // calculate w & h
 function _start() {
-	w = window.innerWidth
+	cols = window.innerWidth
 	  || document.documentElement.clientWidth
 	  || document.body.clientWidth;
-	pw = w / 3
-	w -= mw;
-	w = Math.floor(w / cw);
+	pw = cols / 3
+	cols -= mw;
+	cols = Math.floor(cols / cw);
 
-	h = window.innerHeight
-	ph = h / 3
+	lines = window.innerHeight
 	  || document.documentElement.clientHeight
 	  || document.body.clientHeight;
-	h -= mh;
-	h = Math.floor(h / ch);
+	ph = lines / 3
+	lines -= mh;
+	lines = Math.floor(lines / ch);
 }
 
 function _started() {
