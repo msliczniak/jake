@@ -108,7 +108,7 @@ function init(  i, j) {
 
 function upplayerone()
 {
-	if (player1h <= 1) next
+	if (player1h <= 1) return
 
 	player1h = player1h - 1
 	draw()
@@ -117,7 +117,7 @@ function upplayerone()
 
 function downplayerone()
 {
-	if (player1h >= height) next
+	if (player1h >= height) return
 	
 	player1h = player1h + 1
 	draw()
@@ -126,7 +126,7 @@ function downplayerone()
 
 function upplayertwo()
 {
-	if (player2h <= 1) next
+	if (player2h <= 1) return
 
 	player2h = player2h - 1
 	draw()
@@ -135,7 +135,7 @@ function upplayertwo()
 
 function downplayertwo()
 {
-	if (player2h >= height) next
+	if (player2h >= height) return
 	
 	player2h = player2h + 1
 	draw()
