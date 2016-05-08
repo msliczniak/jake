@@ -42,7 +42,7 @@ function draw(  i, j, gameover) {
 			if (i == 1) {
 				if (player1h == j) {
 					//printf("%s", carr[1] "<" carr[1])
-					t+="<"
+					t+="&lt;"
 
 					if (screen[i,j] == "X") gameover = 1
 					
