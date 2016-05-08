@@ -18,7 +18,7 @@ user-select:none;" unselectable="on" onload="_init()">
 Your browser either does not support JavaScript, or has it turned off.<p>
 </noscript>
 
-<div unselectable="on">
+<font><div unselectable="on">
 <code unselectable="on"><pre id="s" unselectable="on">PLAYER ONE
 Tap upper left or press W key
 to move up.
@@ -31,7 +31,7 @@ Tap upper right or press O key
 Tap lower right or press L key
                  to move down.
 </pre></code>
-</div>
+</div></font>
 
 <script>
 var mw;
@@ -47,6 +47,9 @@ var _startk;
 var _startc;
 var _keypress;
 var _click;
+var carr = ['</font><font color="white">',
+            '</font><font color="violet">',
+            '</font><font color="aqua">'];
 
 // calculate w & h
 function _start() {
@@ -99,7 +102,7 @@ function _init() {
 	s = document.getElementById("s")
 
 	s.innerHTML += 
-	  "\n     Tap center or press\n      SPACEBAR to play.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+	  "\n     Tap center or press\n      SPACEBAR to play.";
 
 	_keypress = function(e) {
 		e = e || window.event;
