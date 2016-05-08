@@ -106,14 +106,48 @@ function init(  i, j) {
 	draw()
 }
 
+function upplayerone()
+{
+	if (player1h <= 1) next
+
+	player1h = player1h - 1
+	draw()
+}
+
+
+function downplayerone()
+{
+	if (player1h >= height) next
+	
+	player1h = player1h + 1
+	draw()
+}
+
+
+function upplayertwo()
+{
+	if (player2h <= 1) next
+
+	player2h = player2h - 1
+	draw()
+}
+
+
+function downplayertwo()
+{
+	if (player2h >= height) next
+	
+	player2h = player2h + 1
+	draw()
+}
+
+
 
 function handle(c) {
-	t = c + "\n"
-	for (j = 1; j < h; j++) {
-		for (i = 0; i < w; i++)
-			t += "."
-		t += "\n"
-	}
+	if (c.toUpperCase()==nkey) upplayerone()
+	else if (c.toUpperCase()==skey) downplayerone()
+	
+	else if (c.toUpperCase()==nkey2) upplayertwo()
+	else if (c.toUpperCase()==skey2) downplayertwo()
 
-	s.innerHTML = t;
 }
