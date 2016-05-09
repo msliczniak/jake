@@ -146,13 +146,43 @@ function downplayertwo()
 	draw()
 }
 
+function screenleft(  i, j) {
+	score = score + 1
+
+	// move all left
+	for (j = 1; j <= height; j = j + 1) {
+		for (i = 2; i <= width; i = i + 1) {
+			screen[[i - 1,j]] = screen[[i,j]]
+		}
+	}
+	
+	// fill spaces in right column
+	for (j = 1; j <= height; j = j + 1) {
+		screen[[width,j]] = " "
+	}
+	
+	// put enemy randomly in right column
+	j = Math.floor(Math.random() * height) + 1
+	screen[[width,j]] = "*"
+	
+	// put another enemy randomly in right column
+	i = Math.floor(Math.random() * (height - 1)) + 1
+	i = j + i
+	if (i > height) i = i - height
+	screen[[width,i]] = "*"
+}
 
 
 function handle(c) {
-	if (c.toUpperCase()==nkey) upplayerone()
-	else if (c.toUpperCase()==skey) downplayerone()
-	
-	else if (c.toUpperCase()==nkey2) upplayertwo()
-	else if (c.toUpperCase()==skey2) downplayertwo()
+	if (c.toUpperCase()==nkey) {
+        upplayerone()
+    } else if (c.toUpperCase()==skey) {
+        downplayerone()
+	} else if (c.toUpperCase()==nkey2) {
+        upplayertwo()
+    } else if (c.toUpperCase()==skey2) {
+        downplayertwo()
+    }
 
+    screenleft()
 }
