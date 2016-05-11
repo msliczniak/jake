@@ -48,7 +48,7 @@ function draw(  i, j, gameover) {
                         t+="&lt;"
                     }
 
-					if (screen[i,j] == "*") gameover = 1
+					if (screen[[i,j]] == "*") gameover = 1
 					
 					continue
 				}
@@ -57,7 +57,7 @@ function draw(  i, j, gameover) {
 					//printf("%s", carr[1] ">" carr[1])
 					t+="&gt;"
 
-					if (screen[i,j] == "*") gameover = 1
+					if (screen[[i,j]] == "*") gameover = 1
 					
 					continue
 				}
@@ -175,14 +175,21 @@ function screenleft(  i, j) {
 
 function handle(c) {
 	if (c.toUpperCase()==nkey) {
+		screenleft()
+
         upplayerone()
     } else if (c.toUpperCase()==skey) {
+		screenleft()
+
         downplayerone()
 	} else if (c.toUpperCase()==nkey2) {
+		screenleft()
+
         upplayertwo()
     } else if (c.toUpperCase()==skey2) {
+		screenleft()
+
         downplayertwo()
     }
 
-    screenleft()
 }
