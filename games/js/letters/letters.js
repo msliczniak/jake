@@ -41,23 +41,31 @@ function draw(  i, j, gameover) {
 		for (i = 1; i <= width; i = i + 1) {
 			if (i == 1) {
 				if (player1h == j) {
-                    //printf("%s", carr[1] "<" carr[1])
+					if (screen[[i,j]] == "*") {
+						t+= carr[2]
+						gameover = 1
+					}
+					
                     if (player1h == player2h) {
                         t+="X"
                     } else {
                         t+="&lt;"
                     }
 
-					if (screen[[i,j]] == "*") gameover = 1
-					
+					t+= carr[0]
 					continue
 				}
                 
 				if (player2h == j) {
+					
+					if (screen[[i,j]] == "*") {
+						t+= carr[2]
+						gameover = 1
+					}
+
 					//printf("%s", carr[1] ">" carr[1])
 					t+="&gt;"
-
-					if (screen[[i,j]] == "*") gameover = 1
+					t+= carr[0]
 					
 					continue
 				}
