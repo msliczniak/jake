@@ -44,7 +44,10 @@ function draw(  i, j, gameover) {
 					if (screen[[i,j]] == "*") {
 						t+= carr[2]
 						gameover = 1
+					} else {
+						t+= carr[1]
 					}
+					
 					
                     if (player1h == player2h) {
                         t+="X"
@@ -61,6 +64,8 @@ function draw(  i, j, gameover) {
 					if (screen[[i,j]] == "*") {
 						t+= carr[2]
 						gameover = 1
+					} else {
+						t+= carr[1]
 					}
 
 					//printf("%s", carr[1] ">" carr[1])
