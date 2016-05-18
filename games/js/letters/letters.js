@@ -50,7 +50,7 @@ function draw(  i, j, gameover) {
 					
 					
                     if (player1h == player2h) {
-                        t+="X"
+                        t+= carr[4] + "X"
                     } else {
                         t+="&lt;"
                     }
@@ -65,7 +65,7 @@ function draw(  i, j, gameover) {
 						t+= carr[2]
 						gameover = 1
 					} else {
-						t+= carr[1]
+						t+= carr[3]
 					}
 
 					//printf("%s", carr[1] ">" carr[1])
