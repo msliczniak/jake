@@ -21,9 +21,7 @@
 	width = 0
 	height = 0
 
-	//cols = w
-	//lines = h
-
+    var rounds = 1
 
 // cl clear screen
 // hi stand-out
@@ -161,6 +159,23 @@ function downplayertwo()
 
 function screenleft(  i, j) {
 	score = score + 1
+    if (score == 100) {
+        rounds = 2
+    } else if (score == 200) {
+        rounds = 3
+    } else if (score == 300) {
+        rounds = 4
+    } else if (score == 500) {
+        rounds = 5
+    } else if (score == 700) {
+        rounds = 6
+    } else if (score == 1000) {
+        rounds = 7
+    } else if (score == 1300) {
+        rounds = 8
+    } else if (score == 1800) {
+        rounds = 9
+    }
 
 	// move all left
 	for (j = 1; j <= height; j = j + 1) {
@@ -173,16 +188,18 @@ function screenleft(  i, j) {
 	for (j = 1; j <= height; j = j + 1) {
 		screen[[width,j]] = " "
 	}
-	
-	// put enemy randomly in right column
-	j = Math.floor(Math.random() * height) + 1
-	screen[[width,j]] = "*"
-	
-	// put another enemy randomly in right column
-	i = Math.floor(Math.random() * (height - 1)) + 1
-	i = j + i
-	if (i > height) i = i - height
-	screen[[width,i]] = "*"
+    
+	for (round = 0; round < rounds; round = round + 1){
+        // put enemy randomly in right column
+        j = Math.floor(Math.random() * height) + 1
+        screen[[width,j]] = "*"
+        
+        // put another enemy randomly in right column
+        i = Math.floor(Math.random() * (height - 1)) + 1
+        i = j + i
+        if (i > height) i = i - height
+        screen[[width,i]] = "*"
+    }
 }
 
 
