@@ -48,7 +48,10 @@ function draw(  i, j, gameover) {
 					
 					
                     if (player1h == player2h) {
-                        t+= carr[4] + "X"
+                        if (! gameover) {
+                            t+= carr[4]
+                        }
+                        t+= "X"
                     } else {
                         t+="&lt;"
                     }
