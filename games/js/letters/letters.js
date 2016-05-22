@@ -125,6 +125,8 @@ function init(  i, j) {
 function upplayerone()
 {
 	if (player1h <= 1) return
+	
+    screenleft()
 
 	player1h = player1h - 1
 	draw()
@@ -134,7 +136,9 @@ function upplayerone()
 function downplayerone()
 {
 	if (player1h >= height) return
-	
+		
+    screenleft()
+
 	player1h = player1h + 1
 	draw()
 }
@@ -143,6 +147,8 @@ function downplayerone()
 function upplayertwo()
 {
 	if (player2h <= 1) return
+	
+    screenleft()
 
 	player2h = player2h - 1
 	draw()
@@ -153,7 +159,9 @@ function downplayertwo()
 {
 	if (player2h >= height) return
 	
-	player2h = player2h + 1
+    screenleft()
+	
+    player2h = player2h + 1
 	draw()
 }
 
@@ -205,19 +213,19 @@ function screenleft(  i, j) {
 
 function handle(c) {
 	if (c.toUpperCase()==nkey) {
-		screenleft()
+		
 
         upplayerone()
     } else if (c.toUpperCase()==skey) {
-		screenleft()
+		
 
         downplayerone()
 	} else if (c.toUpperCase()==nkey2) {
-		screenleft()
+		
 
         upplayertwo()
     } else if (c.toUpperCase()==skey2) {
-		screenleft()
+	
 
         downplayertwo()
     }
